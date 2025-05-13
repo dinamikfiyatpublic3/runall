@@ -47,7 +47,7 @@ def check_supabase():
 # GitHub workflow'u tetiklemek için fonksiyon
 def trigger_workflow(workflow_name):
     response = requests.post(
-        f"https://api.github.com/repos/dinamikfiyatpublic/anlik_guncel/actions/workflows/{workflow_name}/dispatches",
+        f"https://api.github.com/repos/dinamikfiyatpublic2/anlik_guncel/actions/workflows/{workflow_name}/dispatches",
         json={"ref": "main"},
         headers={"Authorization": f"token {github_token}"}
     )
@@ -62,7 +62,7 @@ def trigger_workflow(workflow_name):
 def check_running_workflows():
     # Get all running workflows
     response = requests.get(
-        "https://api.github.com/repos/dinamikfiyatpublic/anlik_guncel/actions/runs",
+        "https://api.github.com/repos/dinamikfiyatpublic2/anlik_guncel/actions/runs",
         headers={"Authorization": f"token {github_token}"}
     )
     if response.status_code != 200:
