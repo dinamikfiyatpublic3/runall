@@ -2,11 +2,11 @@ name: run_all_kods
 
 on:
   # Zamanlanmış çalıştırmalar (aktif etmek için schedule satırlarını aç)
-  #schedule:
-  #  - cron: '00 0 * * *'   # 03:00 (UTC+3)
-  #  - cron: '04 4 * * *'   # 07:04 (UTC+3)
-  #  - cron: '45 8 * * *'   # 11:45 (UTC+3)
-  #  - cron: '00 10 * * *'  # 13:00 (UTC+3)
+  schedule:
+    - cron: '30 4 * * *'   # 07:30 (UTC+3)
+    - cron: '30 8 * * *'   # 11:30 (UTC+3)
+    - cron: '30 10 * * *'  # 13:30 (UTC+3)
+    - cron: '30 16 * * *'  # 19:30 (UTC+3)
 
   # Manuel tetikleme
   workflow_dispatch:
