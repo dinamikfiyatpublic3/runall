@@ -14,8 +14,8 @@ logging.basicConfig(level=logging.INFO)
 def get_token_for_repo(owner):
     if owner == "dinamikfiyatpublic":
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
-    elif owner == "dinamikfiyatpublic2":
-        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC2')
+    elif owner == "dfpublic2":
+        return os.getenv('GITHUB_TOKEN_dfpublic2')
     else:
         logging.warning(f"Bilinmeyen owner: {owner}, default token kullanılıyor.")
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
@@ -80,7 +80,7 @@ def trigger_group_0():
 def trigger_group_1():
     workflows_group_1 = [
         {"workflow_owner": "dinamikfiyatpublic", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"},
-        {"workflow_owner": "dinamikfiyatpublic2", "workflow_repo": "anlik_guncel", "workflow_name": "concurrent_run_api_best_sales.yml"}
+        {"workflow_owner": "dfpublic2", "workflow_repo": "anlik_guncel", "workflow_name": "concurrent_run_api_best_sales.yml"}
     ]
     logging.info("Grup 1 Workflow'ları başlatılıyor...")
     threads = []
@@ -102,7 +102,7 @@ def trigger_group_2():
 def trigger_group_3():
     workflows_group_3 = [
         {"workflow_owner": "dinamikfiyatpublic", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix.yml"},
-        {"workflow_owner": "dinamikfiyatpublic2", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix.yml"}
+        {"workflow_owner": "dfpublic2", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix.yml"}
     ]
     logging.info("Grup 3 Workflow'ları başlatılıyor...")
     threads = []
@@ -115,7 +115,7 @@ def trigger_group_3():
 
 def trigger_group_4():
     workflows_group_4 = [
-        {"workflow_owner": "dinamikfiyatpublic2", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_run.yml"}
+        {"workflow_owner": "dfpublic2", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_run.yml"}
     ]
     logging.info("Grup 4 Workflow'ları başlatılıyor...")
     for workflow in workflows_group_4:
