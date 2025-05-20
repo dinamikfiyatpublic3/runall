@@ -20,6 +20,12 @@ def get_token_for_repo(owner):
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
     elif owner == "dinamikfyt4":
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
+    elif owner == "dinamikfyt5":
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
+    elif owner == "dinamikfyt6":
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
+    elif owner == "dinamikfyt7":
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
     else:
         logging.warning(f"Bilinmeyen owner: {owner}, default token kullanılıyor.")
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
@@ -66,7 +72,7 @@ def wait_for_workflows_to_complete(workflow_owner, workflow_repo):
             logging.info("Tüm workflow'lar tamamlandı.")
             break
         logging.info("Bekleyen workflow'lar var, 10 saniye sonra tekrar kontrol ediliyor...")
-        time.sleep(10)
+        time.sleep(5)
 
 def run_workflow(workflow_name, workflow_owner, workflow_repo):
     trigger_workflow(workflow_name, workflow_owner, workflow_repo)
@@ -75,7 +81,7 @@ def run_workflow(workflow_name, workflow_owner, workflow_repo):
 
 def trigger_group_0():
     workflows_group_0 = [
-        {"workflow_owner": "dinamikfyt2", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_timestamp_update.yml"}
+        {"workflow_owner": "dinamikfyt7", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_timestamp_update.yml"}
     ]
     logging.info("Grup 0 Workflow'ları başlatılıyor...")
     for workflow in workflows_group_0:
@@ -86,8 +92,11 @@ def trigger_group_1():
         {"workflow_owner": "dinamikfyt1", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"},
         {"workflow_owner": "dinamikfyt2", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"},
         {"workflow_owner": "dinamikfyt3", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"},
-        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"}
-        
+        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"},
+        {"workflow_owner": "dinamikfyt5", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"},
+        {"workflow_owner": "dinamikfyt6", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"},
+        {"workflow_owner": "dinamikfyt7", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"}
+                
     ]
     logging.info("Grup 1 Workflow'ları başlatılıyor...")
     threads = []
@@ -100,8 +109,8 @@ def trigger_group_1():
 
 def trigger_group_2():
     workflows_group_2 = [
-        {"workflow_owner": "dinamikfyt3", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_table_yap.yml"},
-        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "concurrent_run_api_best_sales.yml"}
+        {"workflow_owner": "dinamikfyt5", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_table_yap.yml"},
+        {"workflow_owner": "dinamikfyt6", "workflow_repo": "anlik_guncel", "workflow_name": "concurrent_run_api_best_sales.yml"}
     ]
     logging.info("Grup 2 Workflow'ları başlatılıyor...")
     for workflow in workflows_group_2:
@@ -112,7 +121,11 @@ def trigger_group_3():
         {"workflow_owner": "dinamikfyt1", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix.yml"},
         {"workflow_owner": "dinamikfyt2", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix.yml"},
         {"workflow_owner": "dinamikfyt3", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix.yml"},
-        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix.yml"}
+        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix.yml"},
+        {"workflow_owner": "dinamikfyt5", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix.yml"},
+        {"workflow_owner": "dinamikfyt6", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix.yml"},
+        {"workflow_owner": "dinamikfyt7", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix.yml"}
+        
     ]
     logging.info("Grup 3 Workflow'ları başlatılıyor...")
     threads = []
@@ -125,7 +138,7 @@ def trigger_group_3():
 
 def trigger_group_4():
     workflows_group_4 = [
-        {"workflow_owner": "dinamikfyt1", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_run.yml"}
+        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_run.yml"}
     ]
     logging.info("Grup 4 Workflow'ları başlatılıyor...")
     for workflow in workflows_group_4:
