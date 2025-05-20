@@ -13,19 +13,19 @@ logging.basicConfig(level=logging.INFO)
 # Owner'a göre token seçimi
 def get_token_for_repo(owner):
     if owner == "dinamikfyt1":
-        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC1')
     elif owner == "dinamikfyt2":
-        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC2')
     elif owner == "dinamikfyt3":
-        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC3')
     elif owner == "dinamikfyt4":
-        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC4')
     elif owner == "dinamikfyt5":
-        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC5')
     elif owner == "dinamikfyt6":
-        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC6')
     elif owner == "dinamikfyt7":
-        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC7')
     else:
         logging.warning(f"Bilinmeyen owner: {owner}, default token kullanılıyor.")
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
