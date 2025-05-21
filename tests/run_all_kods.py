@@ -72,7 +72,7 @@ def wait_for_workflows_to_complete(workflow_owner, workflow_repo):
             logging.info("Tüm workflow'lar tamamlandı.")
             break
         logging.info("Bekleyen workflow'lar var, 10 saniye sonra tekrar kontrol ediliyor...")
-        time.sleep(5)
+        time.sleep(25)
 
 def run_workflow(workflow_name, workflow_owner, workflow_repo):
     trigger_workflow(workflow_name, workflow_owner, workflow_repo)
