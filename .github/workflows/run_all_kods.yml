@@ -4,9 +4,9 @@ on:
   # Zamanlanmış çalıştırmalar (aktif etmek için schedule satırlarını aç)
   schedule:
     - cron: '00 3 * * *'   # 06:00 (UTC+3)
-    - cron: '00 7 * * *'   # 10:00 (UTC+3)
-    - cron: '00 11 * * *'  # 14:00 (UTC+3)
-    - cron: '00 15 * * *'  # 18:00 (UTC+3)
+    - cron: '30 7 * * *'   # 10:30 (UTC+3)
+    - cron: '30 11 * * *'  # 14:30 (UTC+3)
+    - cron: '30 15 * * *'  # 18:30 (UTC+3)
 
   # Manuel tetikleme
   workflow_dispatch:
