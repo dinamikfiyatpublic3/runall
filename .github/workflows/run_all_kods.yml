@@ -3,9 +3,9 @@ name: run_all_kods
 on:
   # Zamanlanmış çalıştırmalar (aktif etmek için schedule satırlarını aç)
   schedule:
-    - cron: '00 3 * * *'   # 06:00 (UTC+3)
-    - cron: '30 7 * * *'   # 10:30 (UTC+3)
-    - cron: '30 11 * * *'  # 14:30 (UTC+3)
+    - cron: '30 3 * * *'   # 06:30 (UTC+3)
+    - cron: '30 8 * * *'   # 11:30 (UTC+3)
+    - cron: '30 12 * * *'  # 15:30 (UTC+3)
     - cron: '30 16 * * *'  # 19:30 (UTC+3)
 
   # Manuel tetikleme
