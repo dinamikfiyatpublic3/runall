@@ -10,43 +10,6 @@ import sys
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
 
-OWNER = "dinamikfiyatpublic3"  # 🔁 Bu repo sahibini kendine göre değiştir
-REPO = "runall"  # 🔁 Bu scriptin çalıştığı ana repo adı
-WORKFLOW_FILENAMES = [
-    "run_all_kods.yml",
-    "run_all_kods_all_manuel.yml",
-    "run_all_kods_test.yml"
-]
-
-# ✅ Zaten çalışan workflow var mı kontrolü
-def is_any_workflow_running():
-    token = os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC1')
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Accept": "application/vnd.github+json",
-    }
-
-    for workflow_filename in WORKFLOW_FILENAMES:
-        url = f"https://api.github.com/repos/{OWNER}/{REPO}/actions/workflows/{workflow_filename}/runs"
-        response = requests.get(url, headers=headers)
-
-        if response.status_code != 200:
-            logging.error(f"⚠️ Workflow durumu kontrol edilemedi ({workflow_filename}): {response.status_code} - {response.text}")
-            continue
-
-        runs = response.json().get("workflow_runs", [])
-        for run in runs:
-            if run["status"] in ["in_progress", "queued"]:
-                logging.warning(f"🚫 Workflow zaten çalışıyor veya kuyruğa alınmış: {workflow_filename}")
-                return True
-
-    return False
-
-# 🚫 Workflow çalışıyorsa çık
-if is_any_workflow_running():
-    logging.warning("🚫 Herhangi bir workflow zaten çalışıyor, çıkılıyor...")
-    sys.exit(0)
-
 # Owner'a göre token seçimi
 def get_token_for_repo(owner):
     if owner == "dinamikfyt1":
