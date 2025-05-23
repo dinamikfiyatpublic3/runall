@@ -8,7 +8,7 @@ from threading import Thread
 import sys
 
 load_dotenv()
-
+logging.basicConfig(level=logging.INFO)
 
 # Owner'a göre token seçimi
 def get_token_for_repo(owner):
