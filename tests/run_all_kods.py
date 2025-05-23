@@ -4,11 +4,40 @@ import logging
 import time
 from urllib.parse import quote_plus
 from dotenv import load_dotenv
-
 from threading import Thread
+import sys
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
+
+OWNER = "dinamikfiyatpublic3"  # 🔁 Bu repo sahibini kendine göre değiştir
+REPO = "runall"  # 🔁 Bu scriptin çalıştığı ana repo adı
+WORKFLOW_FILENAME = "run_all_kods.yml"  # 🔁 Workflow dosyanızın adı
+
+# ✅ Zaten çalışan workflow var mı kontrolü
+def is_workflow_already_running():
+    token = os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC1')
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+    }
+
+    url = f"https://api.github.com/repos/{OWNER}/{REPO}/actions/workflows/{WORKFLOW_FILENAME}/runs"
+    response = requests.get(url, headers=headers)
+
+    if response.status_code != 200:
+        logging.error(f"⚠️ Workflow durumu kontrol edilemedi: {response.status_code} - {response.text}")
+        return False
+
+    runs = response.json().get("workflow_runs", [])
+    running_or_queued = [run for run in runs if run["status"] in ["in_progress", "queued"]]
+
+    return len(running_or_queued) > 0
+
+# 🚫 Workflow çalışıyorsa çık
+if is_workflow_already_running():
+    logging.warning("🚫 Workflow zaten çalışıyor, çıkılıyor...")
+    sys.exit(0)
 
 # Owner'a göre token seçimi
 def get_token_for_repo(owner):
