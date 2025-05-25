@@ -79,15 +79,6 @@ def run_workflow(workflow_name, workflow_owner, workflow_repo):
     wait_for_workflow_to_start(workflow_owner, workflow_repo)
     wait_for_workflows_to_complete(workflow_owner, workflow_repo)
 
-def trigger_group_2():
-    workflows_group_2 = [
-        {"workflow_owner": "dinamikfyt5", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_table_yap.yml"},
-        {"workflow_owner": "dinamikfyt6", "workflow_repo": "anlik_guncel", "workflow_name": "concurrent_run_api_best_sales.yml"},
-        {"workflow_owner": "dinamikfyt3", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_urunlerim_rakipli_kalan_monitor.yml"}
-    ]
-    logging.info("Grup 2 Workflow'ları başlatılıyor...")
-    for workflow in workflows_group_2:
-        run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
 
 def trigger_group_3():
     workflows_group_3 = [
@@ -118,12 +109,9 @@ def trigger_group_4():
         run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
 
 def start_groups():
-    group_2_thread = Thread(target=trigger_group_2)
     group_3_thread = Thread(target=trigger_group_3)
     group_4_thread = Thread(target=trigger_group_4)
 
-    group_2_thread.start()
-    group_2_thread.join()
     group_3_thread.start()
     group_3_thread.join()
     group_4_thread.start()
