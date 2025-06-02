@@ -1,18 +1,64 @@
-name: Test Run
+name: test_run
 
 on:
-  workflow_dispatch:  # Manuel ve API üzerinden tetiklenebilir
+  # Zamanlanmış çalıştırmalar (aktif etmek için schedule satırlarını aç)
+  # schedule:
+    # - cron: '00 2 * * *'   # 05:00 (UTC+3) - 09:00
+    # - cron: '30 7 * * *'   # 10:30 (UTC+3) - 13:00
+    # - cron: '30 11 * * *'  # 14:30 (UTC+3) - 17:00
+    # - cron: '30 15 * * *'  # 18:30 (UTC+3) - 21:00
+
+  # Manuel tetikleme
+  workflow_dispatch:
 
 jobs:
-  run-tests:
+  run-python-script:
     runs-on: ubuntu-latest
+    timeout-minutes: 360  # Maksimum çalışma süresi: 6 saat
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: ✅ Kod deposunu klonla
+      uses: actions/checkout@v3
+      with:
+        ref: main
+        fetch-depth: 1
+        lfs: false
 
-      - name: Run test script
-        run: |
-          echo "🧪 Running tests..."
-          # Buraya test komutlarını ekle (örneğin pytest, jest, vs.)
-          echo "✅ Test run complete!"
+    - name: 🧹 Git kilit dosyalarını temizle
+      run: |
+        rm -rf .git/index.lock || true
+        rm -rf .git/shallow.lock || true
+
+    - name: 💾 Disk alanını kontrol et
+      run: df -h
+
+    - name: 🧹 Gereksiz sistem dosyalarını temizle
+      run: |
+        sudo rm -rf /usr/share/dotnet || true
+        sudo rm -rf /opt/ghc || true
+        docker system prune -a -f || true
+
+    - name: 🐍 Python ortamını ayarla
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: 📦 Python bağımlılıklarını yükle
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests python-dotenv
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: ✅ Yüklenen paketleri kontrol et
+      run: pip list
+
+    - name: ▶️ Python scriptini çalıştır (run_all_kods.py)
+      env:
+        GITHUB_TOKEN_DINAMIKFIYATPUBLIC1: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC1 }}
+        GITHUB_TOKEN_DINAMIKFIYATPUBLIC2: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC2 }}
+        GITHUB_TOKEN_DINAMIKFIYATPUBLIC3: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC3 }}
+        GITHUB_TOKEN_DINAMIKFIYATPUBLIC4: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC4 }}
+        GITHUB_TOKEN_DINAMIKFIYATPUBLIC5: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC5 }}
+        GITHUB_TOKEN_DINAMIKFIYATPUBLIC6: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC6 }}
+        GITHUB_TOKEN_DINAMIKFIYATPUBLIC7: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC7 }}
+      run: python ./tests/run_all_kods_marka.py
