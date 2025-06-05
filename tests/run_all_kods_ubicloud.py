@@ -89,7 +89,7 @@ def trigger_group_0():
 
 def trigger_group_1():
     workflows_group_1 = [
-        {"workflow_owner": "dinamikfyt1", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"},
+        {"workflow_owner": "dinamikfyt1", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix_ub.yml"},
         {"workflow_owner": "dinamikfyt2", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"},
         {"workflow_owner": "dinamikfyt3", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"},
         {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_ana_api_scrape_matrix.yml"},
