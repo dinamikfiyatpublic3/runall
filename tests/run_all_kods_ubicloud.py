@@ -81,7 +81,7 @@ def run_workflow(workflow_name, workflow_owner, workflow_repo):
 
 def trigger_group_0():
     workflows_group_0 = [
-        {"workflow_owner": "dinamikfyt7", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_timestamp_update.yml"}
+        {"workflow_owner": "dinamikfyt7", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_timestamp_update_ub.yml"}
     ]
     logging.info("Grup 0 Workflow'ları başlatılıyor...")
     for workflow in workflows_group_0:
