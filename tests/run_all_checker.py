@@ -1,7 +1,17 @@
 import requests
 import os
-import sys
 from datetime import datetime, timezone
+
+import logging
+import time
+from urllib.parse import quote_plus
+from dotenv import load_dotenv
+from threading import Thread
+import sys
+
+load_dotenv()
+logging.basicConfig(level=logging.INFO)
+
 
 def get_run_duration(run):
     start_str = run.get("run_started_at")
