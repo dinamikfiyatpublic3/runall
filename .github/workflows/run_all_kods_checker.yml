@@ -61,4 +61,4 @@ jobs:
         GITHUB_TOKEN_DINAMIKFIYATPUBLIC5: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC5 }}
         GITHUB_TOKEN_DINAMIKFIYATPUBLIC6: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC6 }}
         GITHUB_TOKEN_DINAMIKFIYATPUBLIC7: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC7 }}
-      run: python ./tests/run_all_kods_checker.py
+      run: python ./tests/run_all_checker.py
