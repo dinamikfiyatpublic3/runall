@@ -43,7 +43,7 @@ def get_token_for_repo(owner):
     elif owner == "dinamikfyt7":
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC7')
     else:
-        print(f"Bilinmeyen owner: {owner}, default token kullanılıyor.")
+        logging.warning(f"Bilinmeyen owner: {owner}, default token kullanılıyor.")
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
 
 def check_running_workflows(workflow_owner, workflow_repo): #Eğer aktif workflow varsa True dönüyor (Sonra işimize yarayacak)
