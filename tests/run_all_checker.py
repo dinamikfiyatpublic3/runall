@@ -53,15 +53,14 @@ def check_running_workflows(workflow_owner, workflow_repo):
 
     runs = response.json().get("workflow_runs", [])
     found_active = False
-    if runs:
-        print(f"Toplam {len(runs)} run bulundu.")
-        for run in runs:
-            print(f"[{run['name']}] status={run['status']}, conclusion={run['conclusion']}, started_at={run['run_started_at']}")
-            if run["status"] in ["in_progress", "queued"]:
-                if not found_active:
-                    print("Workflow owner:    Workflow name:     Duration:")
-                print(f"{workflow_owner:<18} {run['name']:<18} {get_run_duration(run)}")
-                found_active = True
+
+    for run in runs:
+        if run["status"] in ["in_progress", "queued"]:
+            if not found_active:
+                print("Workflow owner:    Workflow name:     Duration:")
+            print(f"{workflow_owner:<18} {run['name']:<18} {get_run_duration(run)}")
+            found_active = True
+
     return found_active
 
 def check_all_accounts(accounts_to_check, repo_to_check):
