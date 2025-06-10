@@ -53,7 +53,7 @@ def check_running_workflows(workflow_owner, workflow_repo): #Eğer aktif workflo
         headers={"Authorization": f"Bearer {token}"}
     )
     if response.status_code != 200:
-        print(f"Çalışan workflow'lar alınamadı: {response.status_code} - {response.text}")
+        logging.error(f"Çalışan workflow'lar alınamadı: {response.status_code} - {response.text}")
         sys.exit()
 
     runs = response.json().get("workflow_runs", [])
