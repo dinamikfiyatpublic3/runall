@@ -66,7 +66,7 @@ def check_all_accounts(accounts_to_check): #get all the repos for all users and 
         for repo in possible_repos:
             if check_running_workflows(account,repo["name"]):
                 found_active = True
-    if not found_active
+    if not found_active:
         print("No active workflows found in any of the repos for any of the accounts")
     return found_active
 
