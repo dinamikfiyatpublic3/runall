@@ -42,9 +42,11 @@ def get_token_for_repo(owner):
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC6')
     elif owner == "dinamikfyt7":
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC7')
+    elif owner == "dinamikfiyatpublic3":
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC3_PUBLIC')
     else:
         logging.warning(f"Bilinmeyen owner: {owner}, default token kullanılıyor.")
-        return os.getenv('DINAMIKFIYATPUBLIC3')
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC1')
 
 def check_running_workflows(workflow_owner, workflow_repo): #Eğer aktif workflow varsa True dönüyor (Sonra işimize yarayacak)
     token = get_token_for_repo(workflow_owner)
@@ -82,6 +84,7 @@ def check_all_accounts(accounts_to_check): #get all the repos for all users and 
 
                 
 sub_workflow_owners = ["dinamikfyt1","dinamikfyt2","dinamikfyt3","dinamikfyt4","dinamikfyt5","dinamikfyt6","dinamikfyt7"]
+sub_workflow_repo = "anlik_guncel"
 main_workflow_owner = "dinamikfiyatpublic3" #TODO Verify public account name
 main_workflow_repo = "runall"
 
