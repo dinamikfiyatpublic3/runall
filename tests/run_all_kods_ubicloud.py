@@ -163,7 +163,7 @@ def trigger_group_4():
 
 def trigger_group_5():
     workflows_group_5 = [
-        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_run.yml"}
+        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_run_ub.yml"}
     ]
     logging.info("Grup 5 Workflow'ları başlatılıyor...")
     for workflow in workflows_group_5:
