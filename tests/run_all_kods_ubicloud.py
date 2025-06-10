@@ -143,13 +143,13 @@ def trigger_group_3():
 
 def trigger_group_4():
     workflows_group_4 = [
-        {"workflow_owner": "dinamikfyt1", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
-        {"workflow_owner": "dinamikfyt2", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
-        {"workflow_owner": "dinamikfyt3", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
-        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
-        {"workflow_owner": "dinamikfyt5", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
-        {"workflow_owner": "dinamikfyt6", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
-        {"workflow_owner": "dinamikfyt7", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"}
+        {"workflow_owner": "dinamikfyt1", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli_ub.yml"},
+        {"workflow_owner": "dinamikfyt2", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli_ub.yml"},
+        {"workflow_owner": "dinamikfyt3", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli_ub.yml"},
+        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli_ub.yml"},
+        {"workflow_owner": "dinamikfyt5", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli_ub.yml"},
+        {"workflow_owner": "dinamikfyt6", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli_ub.yml"},
+        {"workflow_owner": "dinamikfyt7", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli_ub.yml"}
         
     ]
     logging.info("Grup 4 Workflow'ları başlatılıyor...")
