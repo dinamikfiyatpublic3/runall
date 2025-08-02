@@ -4,8 +4,8 @@ import logging
 import time
 from urllib.parse import quote_plus
 from dotenv import load_dotenv
-
 from threading import Thread
+import sys
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
@@ -102,20 +102,43 @@ def trigger_group_3():
 
 def trigger_group_4():
     workflows_group_4 = [
-        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_run.yml"}
+        {"workflow_owner": "dinamikfyt1", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
+        {"workflow_owner": "dinamikfyt2", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
+        {"workflow_owner": "dinamikfyt3", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
+        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
+        {"workflow_owner": "dinamikfyt5", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
+        {"workflow_owner": "dinamikfyt6", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
+        {"workflow_owner": "dinamikfyt7", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"}
+        
     ]
     logging.info("Grup 4 Workflow'ları başlatılıyor...")
+    threads = []
     for workflow in workflows_group_4:
+        thread = Thread(target=run_workflow, args=(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"]))
+        threads.append(thread)
+        thread.start()
+    for thread in threads:
+        thread.join()
+
+def trigger_group_5():
+    workflows_group_5 = [
+        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_run.yml"}
+    ]
+    logging.info("Grup 5 Workflow'ları başlatılıyor...")
+    for workflow in workflows_group_5:
         run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
 
 def start_groups():
     group_3_thread = Thread(target=trigger_group_3)
     group_4_thread = Thread(target=trigger_group_4)
+    group_5_thread = Thread(target=trigger_group_5)
 
     group_3_thread.start()
     group_3_thread.join()
     group_4_thread.start()
     group_4_thread.join()
+    group_5_thread.start()
+    group_5_thread.join()
 
 if __name__ == "__main__":
     start_groups()
