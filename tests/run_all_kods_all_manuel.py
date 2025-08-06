@@ -79,13 +79,7 @@ def run_workflow(workflow_name, workflow_owner, workflow_repo):
     wait_for_workflow_to_start(workflow_owner, workflow_repo)
     wait_for_workflows_to_complete(workflow_owner, workflow_repo)
 
-def trigger_group_0():
-    workflows_group_0 = [
-        {"workflow_owner": "dinamikfyt7", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_timestamp_update.yml"}
-    ]
-    logging.info("Grup 0 Workflow'ları başlatılıyor...")
-    for workflow in workflows_group_0:
-        run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
+
 
 def trigger_group_1():
     workflows_group_1 = [
@@ -146,14 +140,11 @@ def trigger_group_4():
         run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
 
 def start_groups():
-    group_0_thread = Thread(target=trigger_group_0)
     group_1_thread = Thread(target=trigger_group_1)
     group_2_thread = Thread(target=trigger_group_2)
     group_3_thread = Thread(target=trigger_group_3)
     group_4_thread = Thread(target=trigger_group_4)
 
-    group_0_thread.start()
-    group_0_thread.join() 
     group_1_thread.start()
     group_1_thread.join()  
     group_2_thread.start()
