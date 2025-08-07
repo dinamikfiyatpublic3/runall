@@ -109,7 +109,7 @@ def trigger_group_1():
 def trigger_group_2():
     workflows_group_2 = [
         {"workflow_owner": "dinamikfyt5", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_table_yap.yml"},
-        {"workflow_owner": "dinamikfyt6", "workflow_repo": "anlik_guncel", "workflow_name": "concurrent_run_api_best_sales.yml"},
+        {"workflow_owner": "dinamikfyt1", "workflow_repo": "anlik_guncel", "workflow_name": "concurrent_run_api_best_sales.yml"},
         {"workflow_owner": "dinamikfyt3", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_urunlerim_rakipli_kalan_monitor.yml"}
     ]
     logging.info("Grup 2 Workflow'ları başlatılıyor...")
@@ -205,6 +205,7 @@ def start_groups():
     group_3_1_thread = Thread(target=trigger_group_3_1)
     group_3_2_thread = Thread(target=trigger_group_3_2)
     group_4_thread = Thread(target=trigger_group_4)
+    group_5_thread = Thread(target=trigger_group_5)
     
     group_0_thread.start()
     group_0_thread.join() 
@@ -220,6 +221,8 @@ def start_groups():
     group_3_2_thread.join()
     group_4_thread.start()
     group_4_thread.join()
-    
+    group_5_thread.start()
+    group_5_thread.join()
+
 if __name__ == "__main__":
     start_groups()
