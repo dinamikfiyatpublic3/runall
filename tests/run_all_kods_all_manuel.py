@@ -188,7 +188,14 @@ def trigger_group_4():
         thread.start()
     for thread in threads:
         thread.join()
-
+        
+def trigger_group_5():
+    workflows_group_5 = [
+        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_run.yml"}
+    ]
+    logging.info("Grup 5 Workflow'ları başlatılıyor...")
+    for workflow in workflows_group_5:
+        run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
 
 def start_groups():
     group_0_thread = Thread(target=trigger_group_0)
