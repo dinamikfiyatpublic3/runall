@@ -26,6 +26,8 @@ def get_token_for_repo(owner):
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC6')
     elif owner == "dinamikfyt7":
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC7')
+    elif owner == "dinamikfiyatpublic3":
+        return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC7')
     else:
         logging.warning(f"Bilinmeyen owner: {owner}, default token kullanılıyor.")
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
