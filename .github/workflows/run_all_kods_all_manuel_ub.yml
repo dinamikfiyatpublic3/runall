@@ -1,4 +1,4 @@
-name: run_all_kods_all_manuel
+name: run_all_kods_all_manuel_ub
 
 on:
   # Zamanlanmış çalıştırmalar (aktif etmek için schedule satırlarını aç)
