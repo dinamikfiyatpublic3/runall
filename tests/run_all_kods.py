@@ -120,7 +120,8 @@ def trigger_group_2():
         thread.start()
     for thread in threads:
         thread.join()
-
+        
+       
 def trigger_group_3():
     workflows_group_3 = [
         {"workflow_owner": "dinamikfyt1", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix.yml"},
@@ -147,6 +148,14 @@ def trigger_group_3_1():
     ]
     logging.info("Grup 3_1 Workflow'ları başlatılıyor...")
     for workflow in workflows_group_3_1:
+        run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
+
+def trigger_group_3_1_1():
+    workflows_group_3_1_1 = [
+        {"workflow_owner": "dinamikfyt5", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_update_view_yeni_table_filter.yml"}
+    ]
+    logging.info("Grup 3_1_1 Workflow'ları başlatılıyor...")
+    for workflow in workflows_group_3_1_1:
         run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
         
 def trigger_group_3_2():
@@ -175,6 +184,14 @@ def trigger_group_3_3():
     ]
     logging.info("Grup 3_3 Workflow'ları başlatılıyor...")
     for workflow in workflows_group_3_3:
+        run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
+
+def trigger_group_3_3_1():
+    workflows_group_3_3_1 = [
+        {"workflow_owner": "dinamikfyt5", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_update_view_yeni_table_filter.yml"}
+    ]
+    logging.info("Grup 3_3_1 Workflow'ları başlatılıyor...")
+    for workflow in workflows_group_3_3_1:
         run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
         
 def trigger_group_3_4():
@@ -231,8 +248,10 @@ def start_groups():
     group_2_thread = Thread(target=trigger_group_2)
     group_3_thread = Thread(target=trigger_group_3)
     group_3_1_thread = Thread(target=trigger_group_3_1)
+    group_3_1_1_thread = Thread(target=trigger_group_3_1_1)
     group_3_2_thread = Thread(target=trigger_group_3_2)
     group_3_3_thread = Thread(target=trigger_group_3_3)
+    group_3_3_1_thread = Thread(target=trigger_group_3_3_1)
     group_3_4_thread = Thread(target=trigger_group_3_4)
     group_4_thread = Thread(target=trigger_group_4)
     group_5_thread = Thread(target=trigger_group_5)
@@ -247,10 +266,14 @@ def start_groups():
     group_3_thread.join()
     group_3_1_thread.start()
     group_3_1_thread.join()
+    group_3_1_1_thread.start()
+    group_3_1_1_thread.join()
     group_3_2_thread.start()
     group_3_2_thread.join()
     group_3_3_thread.start()
     group_3_3_thread.join()
+    group_3_3_1_thread.start()
+    group_3_3_1_thread.join()
     group_3_4_thread.start()
     group_3_4_thread.join()
     group_4_thread.start()
