@@ -141,7 +141,7 @@ def trigger_group_3_1():
 
 def trigger_group_3_1_1():
     workflows_group_3_1_1 = [
-        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_update_view_yeni_table_filter.yml"}
+        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_update_view_yeni_table_filter_ub.yml"}
     ]
     logging.info("Grup 3_1_1 Workflow'ları başlatılıyor...")
     for workflow in workflows_group_3_1_1:
@@ -171,7 +171,7 @@ def trigger_group_3_3():
 
 def trigger_group_3_3_1():
     workflows_group_3_3_1 = [
-        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_update_view_yeni_table_filter.yml"}
+        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_update_view_yeni_table_filter_ub.yml"}
     ]
     logging.info("Grup 3_3_1 Workflow'ları başlatılıyor...")
     for workflow in workflows_group_3_3_1:
