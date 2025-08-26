@@ -112,27 +112,10 @@ def trigger_group_4():
         thread.join()
         
 def start_groups():
-    group_0_thread = Thread(target=trigger_group_0)
-    group_1_thread = Thread(target=trigger_group_1)
-    group_2_thread = Thread(target=trigger_group_2)
-    group_3_thread = Thread(target=trigger_group_3)
-    group_3_1_thread = Thread(target=trigger_group_3_1)
-    group_3_1_1_thread = Thread(target=trigger_group_3_1_1)
+    
     group_3_2_thread = Thread(target=trigger_group_3_2)
     group_4_thread = Thread(target=trigger_group_4)
         
-    group_0_thread.start()
-    group_0_thread.join() 
-    group_1_thread.start()
-    group_1_thread.join()  
-    group_2_thread.start()
-    group_2_thread.join()
-    group_3_thread.start()
-    group_3_thread.join()
-    group_3_1_thread.start()
-    group_3_1_thread.join()
-    group_3_1_1_thread.start()
-    group_3_1_1_thread.join()
     group_3_2_thread.start()
     group_3_2_thread.join()
     group_4_thread.start()
