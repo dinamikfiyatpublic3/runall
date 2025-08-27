@@ -26,6 +26,8 @@ def get_token_for_repo(owner):
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC6')
     elif owner == "dinamikfyt7":
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC7')
+    elif owner == "dinamikfiyatpublic3":
+        return os.getenv('DINAMIKFIYATPUBLIC3')
     else:
         logging.warning(f"Bilinmeyen owner: {owner}, default token kullanılıyor.")
         return os.getenv('GITHUB_TOKEN_DINAMIKFIYATPUBLIC')
@@ -79,16 +81,9 @@ def run_workflow(workflow_name, workflow_owner, workflow_repo):
     wait_for_workflow_to_start(workflow_owner, workflow_repo)
     wait_for_workflows_to_complete(workflow_owner, workflow_repo)
 
-
 def trigger_group_4():
     workflows_group_4 = [
-        {"workflow_owner": "dinamikfyt1", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
-        {"workflow_owner": "dinamikfyt2", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
-        {"workflow_owner": "dinamikfyt3", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
-        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
-        {"workflow_owner": "dinamikfyt5", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
-        {"workflow_owner": "dinamikfyt6", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"},
-        {"workflow_owner": "dinamikfyt7", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli.yml"}
+        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli_ub.yml"}
         
     ]
     logging.info("Grup 4 Workflow'ları başlatılıyor...")
@@ -102,7 +97,7 @@ def trigger_group_4():
         
 def trigger_group_5():
     workflows_group_5 = [
-        {"workflow_owner": "dinamikfyt4", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_run.yml"}
+        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_run_ub.yml"}
     ]
     logging.info("Grup 5 Workflow'ları başlatılıyor...")
     for workflow in workflows_group_5:
