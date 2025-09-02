@@ -119,7 +119,7 @@ def trigger_group_2():
 
 def trigger_group_3():
     workflows_group_3 = [
-        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix_ub.yml"}
+        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "concurrent_run_api_matrix_ub.yml"}
         
     ]
     logging.info("Grup 3 Workflow'ları başlatılıyor...")
@@ -149,7 +149,7 @@ def trigger_group_3_1_1():
         
 def trigger_group_3_2():
     workflows_group_3_2 = [
-        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix_ub.yml"}
+        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "concurrent_run_api_matrix_ub.yml"}
         
     ]
     logging.info("Grup 3_2 Workflow'ları başlatılıyor...")
