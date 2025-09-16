@@ -183,6 +183,14 @@ def trigger_group_5():
     for workflow in workflows_group_5:
         run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
 
+def trigger_group_6():
+    workflows_group_6 = [
+        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_mail_send.yml"}
+    ]
+    logging.info("Grup 6 Workflow'ları başlatılıyor...")
+    for workflow in workflows_group_6:
+        run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
+
 def start_groups():
     group_0_thread = Thread(target=trigger_group_0)
     group_1_thread = Thread(target=trigger_group_1)
@@ -193,6 +201,7 @@ def start_groups():
     group_3_2_thread = Thread(target=trigger_group_3_2)
     group_4_thread = Thread(target=trigger_group_4)
     group_5_thread = Thread(target=trigger_group_5)
+    group_6_thread = Thread(target=trigger_group_6)
     
     group_0_thread.start()
     group_0_thread.join() 
@@ -212,6 +221,8 @@ def start_groups():
     group_4_thread.join()
     group_5_thread.start()
     group_5_thread.join()
+    group_6_thread.start()
+    group_6_thread.join()
 
 if __name__ == "__main__":
     start_groups()
