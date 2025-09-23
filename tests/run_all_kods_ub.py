@@ -163,7 +163,8 @@ def trigger_group_3_2():
 
 def trigger_group_4():
     workflows_group_4 = [
-        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli_ub.yml"}
+        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_markalarım_rakipli_ub.yml"},
+        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "scrape_api_urunlerim_rakipli_kalan_monitor_ikinci_ub.yml"}
         
     ]
     logging.info("Grup 4 Workflow'ları başlatılıyor...")
