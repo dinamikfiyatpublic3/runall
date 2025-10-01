@@ -102,6 +102,19 @@ def trigger_group_1():
     for thread in threads:
         thread.join()
 
+def trigger_group_1_1():
+    workflows_group_1_1 = [
+        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "concurrent_run_ana_api_matrix_kalanlar_ub.yml"}     
+    ]
+    logging.info("Grup 1 Workflow'ları başlatılıyor...")
+    threads = []
+    for workflow in workflows_group_1_1:
+        thread = Thread(target=run_workflow, args=(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"]))
+        threads.append(thread)
+        thread.start()
+    for thread in threads:
+        thread.join()
+
 def trigger_group_2():
     workflows_group_2 = [
         {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_table_yap_ub.yml"},
@@ -195,6 +208,7 @@ def trigger_group_6():
 def start_groups():
     group_0_thread = Thread(target=trigger_group_0)
     group_1_thread = Thread(target=trigger_group_1)
+    group_1_1_thread = Thread(target=trigger_group_1_1)
     group_2_thread = Thread(target=trigger_group_2)
     group_3_thread = Thread(target=trigger_group_3)
     group_3_1_thread = Thread(target=trigger_group_3_1)
@@ -207,7 +221,9 @@ def start_groups():
     group_0_thread.start()
     group_0_thread.join() 
     group_1_thread.start()
-    group_1_thread.join()  
+    group_1_thread.join()
+    group_1_1_thread.start()
+    group_1_1_thread.join()  
     group_2_thread.start()
     group_2_thread.join()
     group_3_thread.start()
