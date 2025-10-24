@@ -1,4 +1,4 @@
-name: run_all_kods_ub
+name: run_all_kods_ub_weekend
 
 on:
   # Zamanlanmış çalıştırmalar (aktif etmek için schedule satırlarını aç)
