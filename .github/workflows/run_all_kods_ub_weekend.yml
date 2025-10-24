@@ -62,4 +62,4 @@ jobs:
         GITHUB_TOKEN_DINAMIKFIYATPUBLIC6: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC6 }}
         GITHUB_TOKEN_DINAMIKFIYATPUBLIC7: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC7 }}
         DINAMIKFIYATPUBLIC3: ${{ secrets.DINAMIKFIYATPUBLIC3 }}
-      run: python ./tests/run_all_kods_ub.py
+      run: python ./tests/run_all_kods_ub_weekend.py
