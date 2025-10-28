@@ -143,7 +143,6 @@ def trigger_group_6():
         run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
 
 def start_groups():
-    
     group_3_1_thread = Thread(target=trigger_group_3_1)
     group_3_1_1_thread = Thread(target=trigger_group_3_1_1)
     group_3_2_thread = Thread(target=trigger_group_3_2)
