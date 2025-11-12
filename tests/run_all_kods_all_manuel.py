@@ -81,13 +81,6 @@ def run_workflow(workflow_name, workflow_owner, workflow_repo):
     wait_for_workflow_to_start(workflow_owner, workflow_repo)
     wait_for_workflows_to_complete(workflow_owner, workflow_repo)
 
-def trigger_group_0():
-    workflows_group_0 = [
-        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "supabase_timestamp_update_ub.yml"}
-    ]
-    logging.info("Grup 0 Workflow'ları başlatılıyor...")
-    for workflow in workflows_group_0:
-        run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
 
 def trigger_group_1():
     workflows_group_1 = [
@@ -96,6 +89,19 @@ def trigger_group_1():
     logging.info("Grup 1 Workflow'ları başlatılıyor...")
     threads = []
     for workflow in workflows_group_1:
+        thread = Thread(target=run_workflow, args=(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"]))
+        threads.append(thread)
+        thread.start()
+    for thread in threads:
+        thread.join()
+
+def trigger_group_1_1():
+    workflows_group_1_1 = [
+        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "concurrent_run_ana_api_matrix_kalanlar_ub.yml"}     
+    ]
+    logging.info("Grup 1 Workflow'ları başlatılıyor...")
+    threads = []
+    for workflow in workflows_group_1_1:
         thread = Thread(target=run_workflow, args=(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"]))
         threads.append(thread)
         thread.start()
@@ -117,35 +123,18 @@ def trigger_group_2():
     for thread in threads:
         thread.join()
 
-def trigger_group_3():
-    workflows_group_3 = [
-        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "anlik_guncel", "workflow_name": "otomatik_api_scrape_matrix_ub.yml"}
-        
-    ]
-    logging.info("Grup 3 Workflow'ları başlatılıyor...")
-    threads = []
-    for workflow in workflows_group_3:
-        thread = Thread(target=run_workflow, args=(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"]))
-        threads.append(thread)
-        thread.start()
-    for thread in threads:
-        thread.join()
-
 
 def start_groups():
-    group_0_thread = Thread(target=trigger_group_0)
     group_1_thread = Thread(target=trigger_group_1)
-    group_2_thread = Thread(target=trigger_group_2)
-    group_3_thread = Thread(target=trigger_group_3)
-        
-    group_0_thread.start()
-    group_0_thread.join() 
+    group_1_1_thread = Thread(target=trigger_group_1_1)
+    group_2_thread = Thread(target=trigger_group_2)    
+   
     group_1_thread.start()
-    group_1_thread.join()  
+    group_1_thread.join()
+    group_1_1_thread.start()
+    group_1_1_thread.join()  
     group_2_thread.start()
     group_2_thread.join()
-    group_3_thread.start()
-    group_3_thread.join()
-    
+
 if __name__ == "__main__":
     start_groups()
