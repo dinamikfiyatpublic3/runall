@@ -85,20 +85,6 @@ def run_workflow(workflow_name, workflow_owner, workflow_repo):
 # DEĞİŞİKLİK: workflow_repo artık "workflows-public"
 # ============================================
 
-def trigger_group_3_2():
-    workflows_group_3_2 = [
-        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "workflows-public", "workflow_name": "otomatik_api_scrape_matrix_ub_0_restart.yml"}
-        
-    ]
-    logging.info("Grup 3_2 Workflow'ları başlatılıyor...")
-    threads = []
-    for workflow in workflows_group_3_2:
-        thread = Thread(target=run_workflow, args=(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"]))
-        threads.append(thread)
-        thread.start()
-    for thread in threads:
-        thread.join()
-
 def trigger_group_4():
     workflows_group_4 = [
         {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "workflows-public", "workflow_name": "scrape_api_markalarım_rakipli_ub.yml"},
@@ -132,13 +118,10 @@ def trigger_group_6():
 
 def start_groups():
     
-    group_3_2_thread = Thread(target=trigger_group_3_2)
     group_4_thread = Thread(target=trigger_group_4)
     group_5_thread = Thread(target=trigger_group_5)
     group_6_thread = Thread(target=trigger_group_6)
     
-    group_3_2_thread.start()
-    group_3_2_thread.join()
     group_4_thread.start()
     group_4_thread.join()
     group_5_thread.start()
