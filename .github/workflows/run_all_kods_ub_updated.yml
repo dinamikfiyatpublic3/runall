@@ -1,24 +1,21 @@
 name: run_all_kods_ub_updated
-
 on:
-  # Zamanlanmış çalıştırmalar (aktif etmek için schedule satırlarını aç)
   #schedule:
-   # - cron: '30 3 * * *'   # 06:30 (UTC+3)
-   # - cron: '00 8 * * *'   # 11:00 (UTC+3)
-   # - cron: '00 12 * * *'  # 15:00 (UTC+3)
-   # - cron: '00 16 * * *'  # 19:00 (UTC+3)
-
-  # Manuel tetikleme
+  #  - cron: '30 3 * * *'
+  #  - cron: '00 8 * * *'
+  #  - cron: '00 12 * * *'
+  #  - cron: '00 16 * * *'
   workflow_dispatch:
 
 jobs:
   run-python-script:
     runs-on: ubuntu-latest
-    timeout-minutes: 360  # Maksimum çalışma süresi: 6 saat
-
+    timeout-minutes: 360
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
     - name: ✅ Kod deposunu klonla
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.2.2
       with:
         ref: main
         fetch-depth: 1
@@ -39,7 +36,7 @@ jobs:
         docker system prune -a -f || true
 
     - name: 🐍 Python ortamını ayarla
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v5.6.0
       with:
         python-version: '3.x'
 
@@ -52,7 +49,7 @@ jobs:
     - name: ✅ Yüklenen paketleri kontrol et
       run: pip list
 
-    - name: ▶️ Python scriptini çalıştır (run_all_kods.py)
+    - name: ▶️ Python scriptini çalıştır
       env:
         GITHUB_TOKEN_DINAMIKFIYATPUBLIC1: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC1 }}
         GITHUB_TOKEN_DINAMIKFIYATPUBLIC2: ${{ secrets.MY_TOKEN_DINAMIKFIYATPUBLIC2 }}
