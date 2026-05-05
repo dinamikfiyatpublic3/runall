@@ -85,6 +85,20 @@ def run_workflow(workflow_name, workflow_owner, workflow_repo):
 # DEĞİŞİKLİK: workflow_repo artık "workflows-public"
 # ============================================
 
+def trigger_group_3():
+    workflows_group_3 = [
+        {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "workflows-public", "workflow_name": "otomatik_api_scrape_matrix_ub.yml"}
+        
+    ]
+    logging.info("Grup 3 Workflow'ları başlatılıyor...")
+    threads = []
+    for workflow in workflows_group_3:
+        thread = Thread(target=run_workflow, args=(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"]))
+        threads.append(thread)
+        thread.start()
+    for thread in threads:
+        thread.join()
+
 def trigger_group_3_1():
     workflows_group_3_1 = [
         {"workflow_owner": "dinamikfiyatpublic3", "workflow_repo": "workflows-public", "workflow_name": "supabase_update_view_yeni_table_ub.yml"}
@@ -147,6 +161,7 @@ def trigger_group_6():
         run_workflow(workflow["workflow_name"], workflow["workflow_owner"], workflow["workflow_repo"])
 
 def start_groups():
+    group_3_thread = Thread(target=trigger_group_3)
     group_3_1_thread = Thread(target=trigger_group_3_1)
     group_3_1_1_thread = Thread(target=trigger_group_3_1_1)
     group_3_2_thread = Thread(target=trigger_group_3_2)
@@ -154,6 +169,8 @@ def start_groups():
     group_5_thread = Thread(target=trigger_group_5)
     group_6_thread = Thread(target=trigger_group_6)
     
+    group_3_thread.start()
+    group_3_thread.join()
     group_3_1_thread.start()
     group_3_1_thread.join()
     group_3_1_1_thread.start()
